@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desa Sepadu — Beranda</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',serif;}
+        body{color:#1a3d24;background:linear-gradient(-45deg,#eaf9ee,#d4efdc,#b8e0c4,#d4efdc,#eaf9ee);background-size:400% 400%;animation:gradientShift 15s ease infinite;min-height:100vh;}
+        @keyframes gradientShift{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+        header{padding:22px 60px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.7);backdrop-filter:blur(15px);position:sticky;top:0;z-index:100;box-shadow:0 4px 30px rgba(46,139,87,0.12);border-bottom:1px solid rgba(74,124,89,0.15);}
+        .logo{font-size:24px;font-weight:700;color:#2d6a4f;display:flex;align-items:center;gap:8px;}
+        nav a{margin-left:32px;text-decoration:none;color:#1a3d24;font-size:16px;font-weight:500;position:relative;transition:0.4s;}
+        nav a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:3px;background:linear-gradient(90deg,#2d6a4f,#52b788,#95d5b2);border-radius:3px;transition:width 0.4s;}
+        nav a:hover::after, nav a.active::after{width:100%;}
+        nav a.active{color:#2d6a4f;font-weight:600;}
+        .hero{padding:110px 60px 160px;max-width:1200px;margin:0 auto;animation:fadeInUp 1s ease-out;}
+        @keyframes fadeInUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+        .hero-subtitle{font-size:18px;color:#40916c;margin-bottom:20px;letter-spacing:4px;text-transform:uppercase;}
+        .hero-title{font-size:60px;line-height:1.15;margin-bottom:25px;}
+        .hero-title span{background:linear-gradient(120deg,#2d6a4f,#52b788,#95d5b2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+        .hero-desc{font-size:20px;color:#2d6a4f;max-width:650px;margin-bottom:45px;line-height:1.7;}
+        .hero-location{font-size:17px;color:#40916c;margin-bottom:50px;display:flex;align-items:center;gap:10px;}
+        .btn-group{display:flex;gap:20px;flex-wrap:wrap;}
+        .btn{padding:15px 32px;border-radius:50px;font-size:16px;font-weight:600;text-decoration:none;transition:all 0.4s ease;display:inline-flex;align-items:center;gap:8px;}
+        .btn-primary{background:linear-gradient(135deg,#2d6a4f,#52b788);color:white;box-shadow:0 8px 25px rgba(45,106,79,0.3);}
+        .btn-primary:hover{transform:translateY(-4px);box-shadow:0 12px 35px rgba(45,106,79,0.35);}
+        .btn-secondary{background:white;color:#2d6a4f;border:2px solid #52b788;}
+        .btn-secondary:hover{background:#52b788;color:white;transform:translateY(-4px);}
+        .features{padding:60px 60px 120px;max-width:1200px;margin:0 auto;}
+        .section-label{font-size:15px;color:#40916c;letter-spacing:4px;text-transform:uppercase;margin-bottom:15px;}
+        .section-title{font-size:38px;margin-bottom:50px;}
+        .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;}
+        .feature-card{background:white;padding:40px 30px;border-radius:24px;box-shadow:0 6px 30px rgba(45,106,79,0.12);transition:all 0.5s ease;border:2px solid transparent;position:relative;overflow:hidden;}
+        .feature-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,#2d6a4f,#52b788,#95d5b2,#52b788,#2d6a4f);background-size:200% 100%;animation:lineShimmer 3s linear infinite;}
+        @keyframes lineShimmer{0%{background-position:0% 50%;}100%{background-position:200% 50%;}}
+        .feature-card:hover{transform:translateY(-12px);box-shadow:0 18px 45px rgba(45,106,79,0.18);border-color:#74c69d;}
+        .feature-icon{font-size:42px;margin-bottom:20px;transition:transform 0.4s ease;}
+        .feature-card:hover .feature-icon{transform:scale(1.2) rotate(5deg);}
+        .feature-title{font-size:20px;color:#1b4332;margin-bottom:12px;}
+        .feature-desc{font-size:15px;color:#52b788;margin-bottom:18px;}
+        .link-more{color:#2d6a4f;font-weight:600;text-decoration:none;display:inline-flex;align-items:center:gap:8px;transition:gap 0.3s ease;}
+        .link-more:hover{gap:15px;}
+        .floating-leaf{position:fixed;font-size:30px;opacity:0.15;pointer-events:none;z-index:-1;animation:floatLeaf 18s linear infinite;}
+        @keyframes floatLeaf{0%{transform:translateY(100vh) rotate(0deg);opacity:0;}10%{opacity:0.15;}90%{opacity:0.15;}100%{transform:translateY(-100px) rotate(360deg);opacity:0;}}
+        footer{text-align:center;padding:40px 20px;color:#40916c;font-size:14px;border-top:1px solid rgba(74,124,89,0.15);margin-top:40px;}
+        @media(max-width:768px){header,.hero,.features{padding-left:25px;padding-right:25px;}.hero-title{font-size:40px;}nav a{margin-left:12px;}}
+    </style>
+</head>
+<body>
+<div class="floating-leaf" style="left:8%;animation-delay:0s;">🍃</div>
+<div class="floating-leaf" style="left:25%;animation-delay:3s;">🌿</div>
+<div class="floating-leaf" style="left:45%;animation-delay:6s;">🍀</div>
+<div class="floating-leaf" style="left:65%;animation-delay:9s;">🌱</div>
+<div class="floating-leaf" style="left:85%;animation-delay:12s;">🍃</div>
+
+<header>
+    <div class="logo"><span>🌿</span> Desa Sepadu</div>
+    <nav>
+        <a href="index.html" class="active">Beranda</a>
+        <a href="profil.html">Profil</a>
+        <a href="galeri.html">Galeri</a>
+        <a href="lokasi.html">Lokasi</a>
+        <a href="budaya.html">Budaya</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <p class="hero-subtitle">— Harmoni Alam dan Kehidupan —</p>
+    <h1 class="hero-title">Selamat Datang<br>di <span>Desa Sepadu</span></h1>
+    <p class="hero-desc">Menjelajahi keindahan alam, potensi, dan kehidupan masyarakat Desa Sepadu — tempat di mana kedamaian tumbuh bersama alam, dan setiap jengkal tanah menyimpan cerita.</p>
+    <p class="hero-location">📍 Dusun Semayang • Kecamatan Semparuk • Kabupaten Sambas</p>
+    <div class="btn-group">
+        <a href="profil.html" class="btn btn-primary">Jelajahi Desa →</a>
+        <a href="lokasi.html" class="btn btn-secondary">Lihat Lokasi 📍</a>
+    </div>
+</section>
+
+<section class="features">
+    <p class="section-label">— Perjalanan Digital —</p>
+    <h2 class="section-title">Alam bernapas, cerita mengalir,<br>kita menjaga warisan.</h2>
+    <p style="color:#40916c;margin-bottom:50px;">Jelajahi Desa Sepadu seperti menyusuri jalan desa — perlahan, hangat, dan penuh kejutan di setiap tikungan.</p>
+    <div class="features-grid">
+        <div class="feature-card"><div class="feature-icon">🌿</div><h3 class="feature-title">Mengenal Desa</h3><p class="feature-desc">Suasana, kehidupan, lingkungan, dan kebersamaan warga.</p><a href="profil.html" class="link-more">Jelajahi →</a></div>
+        <div class="feature-card"><div class="feature-icon">🌾</div><h3 class="feature-title">Potensi Desa</h3><p class="feature-desc">Pertanian, perkebunan, dan kekayaan alam melimpah.</p><a href="budaya.html" class="link-more">Jelajahi →</a></div>
+        <div class="feature-card"><div class="feature-icon">📸</div><h3 class="feature-title">Cerita Visual</h3><p class="feature-desc">Kumpulan foto hidup yang berbicara tanpa kata.</p><a href="galeri.html" class="link-more">Jelajahi →</a></div>
+        <div class="feature-card"><div class="feature-icon">📍</div><h3 class="feature-title">Temukan Desa</h3><p class="feature-desc">Peta arah menuju permata hijau Sambas.</p><a href="lokasi.html" class="link-more">Jelajahi →</a></div>
+    </div>
+</section>
+<div id="frofil-desa"></div>
+<footer>🌿 Desa Sepadu — Dusun Semayang, Kec. Semparuk, Kab. Sambas</footer>
+<script src="script.js"></script>
+</body>
+</html>

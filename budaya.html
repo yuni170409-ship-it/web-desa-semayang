@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budaya — Desa Sepadu</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',serif;}
+        body{color:#1a3d24;background:linear-gradient(-45deg,#eaf9ee,#d4efdc,#b8e0c4,#d4efdc,#eaf9ee);background-size:400% 400%;animation:gradientShift 15s ease infinite;min-height:100vh;}
+        @keyframes gradientShift{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+        header{padding:22px 60px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.7);backdrop-filter:blur(15px);position:sticky;top:0;z-index:100;box-shadow:0 4px 30px rgba(46,139,87,0.12);border-bottom:1px solid rgba(74,124,89,0.15);}
+        .logo{font-size:24px;font-weight:700;color:#2d6a4f;display:flex;align-items:center;gap:8px;}
+        nav a{margin-left:32px;text-decoration:none;color:#1a3d24;font-size:16px;font-weight:500;position:relative;transition:0.4s;}
+        nav a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:3px;background:linear-gradient(90deg,#2d6a4f,#52b788,#95d5b2);border-radius:3px;transition:width 0.4s;}
+        nav a:hover::after, nav a.active::after{width:100%;}
+        nav a.active{color:#2d6a4f;font-weight:600;}
+        .container{max-width:1000px;margin:0 auto;padding:80px 60px;animation:fadeInUp 1s ease-out;}
+        @keyframes fadeInUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+        .page-label{font-size:15px;color:#40916c;letter-spacing:4px;text-transform:uppercase;margin-bottom:15px;}
+        h1{font-size:44px;margin-bottom:40px;background:linear-gradient(120deg,#2d6a4f,#40916c,#52b788);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+        .card{background:white;padding:40px;border-radius:24px;box-shadow:0 6px 30px rgba(45,106,79,0.12);margin-bottom:25px;border:2px solid transparent;transition:all 0.5s ease;position:relative;overflow:hidden;}
+        .card::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,#2d6a4f,#52b788,#95d5b2,#52b788,#2d6a4f);background-size:200% 100%;animation:lineShimmer 3s linear infinite;}
+        @keyframes lineShimmer{0%{background-position:0% 50%;}100%{background-position:200% 50%;}}
+        .card:hover{transform:translateY(-8px);box-shadow:0 18px 45px rgba(45,106,79,0.18);border-color:#74c69d;}
+        .card h2{font-size:24px;color:#2d6a4f;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+        .card ul{list-style:none;}
+        .card li{padding:14px 0;border-bottom:1px dashed #b7e4c7;font-size:16px;transition:padding-left 0.3s ease;}
+        .card li:last-child{border:none;}
+        .card li:hover{padding-left:10px;color:#2d6a4f;}
+        .card li strong{color:#1b4332;}
+        .floating-leaf{position:fixed;font-size:30px;opacity:0.15;pointer-events:none;z-index:-1;animation:floatLeaf 18s linear infinite;}
+        @keyframes floatLeaf{0%{transform:translateY(100vh) rotate(0deg);opacity:0;}10%{opacity:0.15;}90%{opacity:0.15;}100%{transform:translateY(-100px) rotate(360deg);opacity:0;}}
+        footer{text-align:center;padding:40px 20px;color:#40916c;font-size:14px;border-top:1px solid rgba(74,124,89,0.15);margin-top:60px;}
+        @media(max-width:768px){header,.container{padding-left:25px;padding-right:25px;}nav a{margin-left:12px;}}
+    </style>
+</head>
+<body>
+<div class="floating-leaf" style="left:8%;animation-delay:0s;">🍃</div>
+<div class="floating-leaf" style="left:25%;animation-delay:3s;">🌿</div>
+<div class="floating-leaf" style="left:45%;animation-delay:6s;">🍀</div>
+<div class="floating-leaf" style="left:65%;animation-delay:9s;">🌱</div>
+<div class="floating-leaf" style="left:85%;animation-delay:12s;">🍃</div>
+
+<header>
+    <div class="logo"><span>🌿</span> Desa Sepadu</div>
+    <nav>
+        <a href="index.html">Beranda</a>
+        <a href="profil.html">Profil</a>
+        <a href="galeri.html">Galeri</a>
+        <a href="lokasi.html">Lokasi</a>
+        <a href="budaya.html" class="active">Budaya</a>
+    </nav>
+</header>
+
+<div class="container">
+    <p class="page-label">— Warisan yang Tetap Bernyanyi —</p>
+    <h1>🎵 Budaya & Potensi Desa</h1>
+    
+    <div class="card">
+        <h2>🌾 Potensi Alam yang Melimpah</h2>
+        <ul>
+            <li>🌾 <strong>Pertanian</strong> — Tanah subur, padi menguning menanti panen</li>
+            <li>🌴 <strong>Perkebunan</strong> — Kelapa, sawit, buah tropis tumbuh berlimpah</li>
+            <li>🌊 <strong>Perikanan</strong> — Sungai jernih & laut dekat memberi rezeki</li>
+            <li>🌲 <strong>Lingkungan</strong> — Hawa sejuk, pemandangan menenangkan jiwa</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>🎶 Budaya yang Tak Pernah Pudar</h2>
+        <ul>
+            <li>🎵 <strong>Lagu Daerah</strong> — "Sambas Mendunie", "Alok Galing" melantunkan kisah leluhur</li>
+            <li>🤝 <strong>Gotong Royong</strong> — Satu tangan membantu, semua bahu terasa ringan</li>
+            <li>🍽️ <strong>Kuliner Khas</strong> — Bubur pedas, ampiang, rasa yang melekat di hati</li>
+            <li>🕌 <strong>Kehidupan Beragama</strong> — Damai dalam perbedaan, rukun dalam kebersamaan</li>
+            <li>🎊 <strong>Adat Istiadat</strong> — Pernikahan, syukuran, warisan yang dijaga erat</li>
+        </ul>
+        <div id="budaya-list"></div>
+    </div>
+</div>
+
+<footer>🌿 Desa Sepadu — Dusun Semayang, Kec. Semparuk, Kab. Sambas</footer>
+<script src="script.js"></script>
+</body>
+</html>

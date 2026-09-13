@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil — Desa Sepadu</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',serif;}
+
+        /* ==== LATAR BELAKANG HIDUP ==== */
+        body{
+            color:#1a3d24;
+            background: linear-gradient(-45deg, #eaf9ee, #d4efdc, #b8e0c4, #d4efdc, #eaf9ee);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height:100vh;
+        }
+
+        @keyframes gradientShift {
+            0%{background-position:0% 50%;}
+            50%{background-position:100% 50%;}
+            100%{background-position:0% 50%;}
+        }
+
+        header{
+            padding:22px 60px;
+            display:flex;justify-content:space-between;align-items:center;
+            background:rgba(255,255,255,0.7);
+            backdrop-filter:blur(15px);
+            position:sticky;top:0;z-index:100;
+            box-shadow:0 4px 30px rgba(46,139,87,0.12);
+            border-bottom:1px solid rgba(74,124,89,0.15);
+        }
+
+        .logo{
+            font-size:24px;font-weight:700;color:#2d6a4f;
+            display:flex;align-items:center;gap:8px;
+        }
+
+        nav a{
+            margin-left:32px;text-decoration:none;color:#1a3d24;font-size:16px;font-weight:500;
+            position:relative;transition:0.4s;
+        }
+
+        nav a::after{
+            content:'';position:absolute;bottom:-4px;left:0;width:0;height:3px;
+            background:linear-gradient(90deg,#2d6a4f,#52b788,#95d5b2);
+            border-radius:3px;transition:width 0.4s ease;
+        }
+
+        nav a:hover::after, nav a.active::after{width:100%;}
+        nav a.active{color:#2d6a4f;font-weight:600;}
+
+        .container{max-width:1000px;margin:0 auto;padding:80px 60px;animation:fadeInUp 1s ease-out;}
+        @keyframes fadeInUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+
+        .page-label{
+            font-size:15px;color:#40916c;letter-spacing:4px;text-transform:uppercase;margin-bottom:15px;
+        }
+
+        h1{
+            font-size:44px;margin-bottom:40px;
+            background:linear-gradient(120deg,#2d6a4f,#40916c,#52b788);
+            -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+        }
+
+        /* ==== KARTU: Tampilan hidup ==== */
+        .card{
+            background:white;padding:40px;border-radius:24px;
+            box-shadow:0 6px 30px rgba(45,106,79,0.12);
+            margin-bottom:30px;
+            border:2px solid transparent;
+            transition:all 0.5s cubic-bezier(0.25,0.8,0.25,1);
+            position:relative;overflow:hidden;
+        }
+
+        .card:hover{
+            transform:translateY(-8px);
+            box-shadow:0 18px 45px rgba(45,106,79,0.18);
+            border-color:#74c69d;
+        }
+
+        /* Garis hiasan hijau berkilau di atas kartu */
+        .card::before{
+            content:'';position:absolute;top:0;left:0;width:100%;height:4px;
+            background:linear-gradient(90deg,#2d6a4f,#52b788,#95d5b2,#52b788,#2d6a4f);
+            background-size:200% 100%;
+            animation: lineShimmer 3s linear infinite;
+        }
+
+        @keyframes lineShimmer{
+            0%{background-position:0% 50%;}
+            100%{background-position:200% 50%;}
+        }
+
+        .card h2{
+            font-size:24px;color:#2d6a4f;margin-bottom:25px;display:flex;align-items:center;gap:10px;
+        }
+
+        /* ==== TABEL DATA ==== */
+        .info-grid{
+            display:grid;grid-template-columns:1fr 1fr;gap:0;
+            border-radius:16px;overflow:hidden;border:1px solid #b7e4c7;
+        }
+
+        .info-item{
+            padding:15px 20px;
+            display:flex;gap:8px;
+            transition:background 0.3s ease;
+        }
+
+        .info-item:nth-child(odd){background:#f0f9f3;}
+        .info-item:nth-child(even){background:white;}
+
+        .info-item:hover{background:#d8f3dc;}
+
+        .info-item strong{color:#1b4332;min-width:100px;display:inline-block;}
+
+        p{
+            font-size:17px;line-height:1.9;color:#2d6a4f;margin-bottom:15px;text-align:justify;
+        }
+
+        /* ==== DAUN MENGAPUNG ==== */
+        .floating-leaf{
+            position:fixed;font-size:30px;opacity:0.15;pointer-events:none;z-index:-1;
+            animation: floatLeaf 18s linear infinite;
+        }
+
+        @keyframes floatLeaf{
+            0%{transform:translateY(100vh) rotate(0deg);opacity:0;}
+            10%{opacity:0.15;}
+            90%{opacity:0.15;}
+            100%{transform:translateY(-100px) rotate(360deg);opacity:0;}
+        }
+
+        footer{
+            text-align:center;padding:40px 20px;color:#40916c;font-size:14px;
+            border-top:1px solid rgba(74,124,89,0.15);margin-top:60px;
+        }
+
+        @media(max-width:768px){
+            header,.container{padding-left:25px;padding-right:25px;}
+            .info-grid{grid-template-columns:1fr;}
+            nav a{margin-left:12px;}
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==== DAUN MENGAPUNG HIJAU ==== -->
+<div class="floating-leaf" style="left:8%;animation-delay:0s;">🍃</div>
+<div class="floating-leaf" style="left:25%;animation-delay:3s;">🌿</div>
+<div class="floating-leaf" style="left:45%;animation-delay:6s;">🍀</div>
+<div class="floating-leaf" style="left:65%;animation-delay:9s;">🌱</div>
+<div class="floating-leaf" style="left:85%;animation-delay:12s;">🍃</div>
+
+<header>
+    <div class="logo"><span>🌿</span> Desa Sepadu</div>
+    <nav>
+        <a href="index.html">Beranda</a>
+        <a href="profil.html" class="active">Profil</a>
+        <a href="galeri.html">Galeri</a>
+        <a href="lokasi.html">Lokasi</a>
+        <a href="budaya.html">Budaya</a>
+    </nav>
+</header>
+
+<div class="container">
+    <p class="page-label">— Mengenal Lebih Dekat —</p>
+    <h1>🌿 Profil Desa Sepadu</h1>
+
+    <div class="card">
+        <h2>📋 Data Umum Desa</h2>
+        <div class="info-grid">
+            <div class="info-item"><strong>📍 Provinsi</strong> : Kalimantan Barat</div>
+            <div class="info-item"><strong>🗺️ Kabupaten</strong> : Sambas</div>
+            <div class="info-item"><strong>🏘️ Kecamatan</strong> : Semparuk</div>
+            <div class="info-item"><strong>🌿 Dusun</strong> : Semayang</div>
+            <div class="info-item"><strong>🏡 Nama Desa</strong> : Sepadu</div>
+            <div class="info-item"><strong>👨‍👩‍👧‍👦 Penduduk</strong> : Ramah & Bergotong Royong</div>
+            <div class="info-item"><strong>🌾 Mata Pencaharian</strong> : Pertanian, Perkebunan, Perikanan</div>
+            <div class="info-item"><strong>🌤️ Iklim</strong> : Tropis & Sejuk</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>📝 Sekilas Sejarah & Keterangan</h2>
+        <p>Desa Sepadu, yang terletak di Dusun Semayang, Kecamatan Semparuk, Kabupaten Sambas, adalah sebuah permata tersembunyi di pesisir utara Kalimantan Barat. Di sini, alam berbicara dalam bahasa yang lembut — melalui desiran angin di antara pucuk padi, aliran sungai yang jernih, hingga senyum hangat setiap warga yang menyapa.</p>
+        <p>Nama "Sepadu" sendiri mengandung makna kebersamaan dan keselarasan — sepadan dan seiring, hidup berdampingan dengan alam. Tanah yang subur telah melahirkan generasi-generasi petani yang gigih, menjaga warisan leluhur sekaligus membuka pintu bagi masa depan.</p>
+        <p>Terletak dekat perbatasan, desa kami menjadi jembatan budaya dan perdamaian. Kerukunan antarwarga terjaga rapat, seperti akar pohon beringin yang saling mengait — kuat karena bersatu, tegak karena saling menopang.</p>
+    </div>
+
+    <div class="card">
+        <h2>✨ Visi & Harapan</h2>
+        <p>Menjadikan Desa Sepadu sebagai desa yang asri, maju, dan berbudaya — di mana alam tetap lestari, masyarakat makmur, dan anak-anak tumbuh membawa mimpi besar dari tanah kelahirannya.</p>
+    </div>
+</div>
+<div id="frofil-desa"></div>
+<footer>
+    🌿 Desa Sepadu — Dusun Semayang, Kec. Semparuk, Kab. Sambas<br>
+    <small>© 2026 — Sepadu: Bersatu, Asri, Bermaju</small>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri — Desa Sepadu</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',serif;}
+
+        body{
+            color:#1a3d24;
+            background: linear-gradient(-45deg, #eaf9ee, #d4efdc, #b8e0c4, #d4efdc, #eaf9ee);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height:100vh;
+        }
+
+        @keyframes gradientShift {
+            0%{background-position:0% 50%;}
+            50%{background-position:100% 50%;}
+            100%{background-position:0% 50%;}
+        }
+
+        header{
+            padding:22px 60px;
+            display:flex;justify-content:space-between;align-items:center;
+            background:rgba(255,255,255,0.7);
+            backdrop-filter:blur(15px);
+            position:sticky;top:0;z-index:100;
+            box-shadow:0 4px 30px rgba(46,139,87,0.12);
+            border-bottom:1px solid rgba(74,124,89,0.15);
+        }
+
+        .logo{
+            font-size:24px;font-weight:700;color:#2d6a4f;
+            display:flex;align-items:center;gap:8px;
+        }
+
+        nav a{
+            margin-left:32px;text-decoration:none;color:#1a3d24;font-size:16px;font-weight:500;
+            position:relative;transition:0.4s;
+        }
+
+        nav a::after{
+            content:'';position:absolute;bottom:-4px;left:0;width:0;height:3px;
+            background:linear-gradient(90deg,#2d6a4f,#52b788,#95d5b2);
+            border-radius:3px;transition:width 0.4s ease;
+        }
+
+        nav a:hover::after, nav a.active::after{width:100%;}
+        nav a.active{color:#2d6a4f;font-weight:600;}
+
+        .container{max-width:1200px;margin:0 auto;padding:80px 60px;animation:fadeInUp 1s ease-out;}
+        @keyframes fadeInUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+
+        .page-label{
+            font-size:15px;color:#40916c;letter-spacing:4px;text-transform:uppercase;margin-bottom:15px;
+        }
+
+        h1{
+            font-size:44px;margin-bottom:20px;
+            background:linear-gradient(120deg,#2d6a4f,#40916c,#52b788);
+            -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+        }
+
+        .desc{font-size:18px;color:#2d6a4f;max-width:650px;margin-bottom:50px;line-height:1.8;}
+
+        .gallery-grid{
+            display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:28px;
+        }
+
+        .gallery-card{
+            background:white;border-radius:24px;overflow:hidden;
+            box-shadow:0 6px 30px rgba(45,106,79,0.12);
+            transition:all 0.5s cubic-bezier(0.25,0.8,0.25,1);
+            border:2px solid transparent;
+            position:relative;
+        }
+
+        .gallery-card:hover{
+            transform:translateY(-12px) scale(1.02);
+            box-shadow:0 20px 50px rgba(45,106,79,0.2);
+            border-color:#74c69d;
+        }
+
+        .gallery-img{
+            height:160px;
+            background:linear-gradient(145deg,#b7e4c7,#95d5b2,#74c69d,#95d5b2,#b7e4c7);
+            background-size:300% 300%;
+            animation: shimmerGreen 4s ease-in-out infinite;
+            display:flex;align-items:center;justify-content:center;
+            font-size:65px;position:relative;overflow:hidden;
+        }
+
+        @keyframes shimmerGreen{
+            0%{background-position:0% 50%;}
+            50%{background-position:100% 50%;}
+            100%{background-position:0% 50%;}
+        }
+
+        .gallery-img::before{
+            content:'';position:absolute;width:100%;height:100%;
+            background:radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4), transparent 60%);
+            animation: sunRay 6s ease-in-out infinite;
+        }
+
+        @keyframes sunRay{
+            0%,100%{opacity:0.3;transform:translate(0,0);}
+            50%{opacity:0.6;transform:translate(10px,5px);}
+        }
+
+        .gallery-img img{
+            width:100%;height:100%;object-fit:cover;
+            transition:transform 0.5s ease;
+        }
+
+        .gallery-card:hover .gallery-img img{transform:scale(1.08);}
+
+        .gallery-info{padding:22px;}
+        .gallery-info h3{font-size:19px;color:#1b4332;margin-bottom:8px;}
+        .gallery-info p{font-size:14px;color:#52b788;}
+
+        footer{
+            text-align:center;padding:40px 20px;color:#40916c;font-size:14px;
+            border-top:1px solid rgba(74,124,89,0.15);margin-top:60px;
+        }
+
+        .floating-leaf{
+            position:fixed;font-size:30px;opacity:0.15;pointer-events:none;z-index:-1;
+            animation: floatLeaf 18s linear infinite;
+        }
+
+        @keyframes floatLeaf{
+            0%{transform:translateY(100vh) rotate(0deg);opacity:0;}
+            10%{opacity:0.15;}
+            90%{opacity:0.15;}
+            100%{transform:translateY(-100px) rotate(360deg);opacity:0;}
+        }
+
+        @media(max-width:768px){
+            header,.container{padding-left:25px;padding-right:25px;}
+            h1{font-size:32px;}
+            nav a{margin-left:12px;}
+        }
+    </style>
+</head>
+<body>
+
+<div class="floating-leaf" style="left:8%;animation-delay:0s;">🍃</div>
+<div class="floating-leaf" style="left:25%;animation-delay:3s;">🌿</div>
+<div class="floating-leaf" style="left:45%;animation-delay:6s;">🍀</div>
+<div class="floating-leaf" style="left:65%;animation-delay:9s;">🌱</div>
+<div class="floating-leaf" style="left:85%;animation-delay:12s;">🍃</div>
+
+<header>
+    <div class="logo"><span>🌿</span> Desa Sepadu</div>
+    <nav>
+        <a href="index.html">Beranda</a>
+        <a href="profil.html">Profil</a>
+        <a href="galeri.html" class="active">Galeri</a>
+        <a href="lokasi.html">Lokasi</a>
+        <a href="budaya.html">Budaya</a>
+    </nav>
+</header>
+
+<div class="container">
+    <p class="page-label">— Kumpulan Cerita Visual —</p>
+    <h1>📸 Galeri Keindahan Desa</h1>
+    <p class="desc">Jejak langkah di tanah hijau. Di sini, setiap sudut bercerita — tentang alam yang bernapas, masyarakat yang hidup harmonis bersama alam.</p>
+
+    <div class="gallery-grid">
+
+        <!-- 1. Pemandangan Alam -->
+        <div class="gallery-card">
+            <div class="gallery-img">
+                <img src="pemandangan_alam.jpeg" alt="Pemandangan Alam">
+            </div>
+            <div class="gallery-info">
+                <h3>Pemandangan Alam</h3>
+                <p>Matahari menyapa desa di pagi hari</p>
+            </div>
+        </div>
+
+        <!-- 2. Hamparan Sawah -->
+        <div class="gallery-card">
+            <div class="gallery-img">
+                <img src="hamparan_sawah.jpeg" alt="Hamparan Sawah">
+            </div>
+            <div class="gallery-info">
+                <h3>Hamparan Sawah</h3>
+                <p>Lautan hijau hasil keringat petani</p>
+            </div>
+        </div>
+
+        <!-- 3. Aliran Sungai & Sunset -->
+        <div class="gallery-card">
+            <div class="gallery-img">
+                <img src="sungai.jpeg" alt="Aliran Sungai & Sunset">
+            </div>
+            <div class="gallery-info">
+                <h3>Aliran Sungai & Sunset</h3>
+                <p>Air jernih membawa kedamaian</p>
+            </div>
+        </div>
+
+        <!-- 4. TK / PAUD -->
+        <div class="gallery-card">
+            <div class="gallery-img">
+                <img src="tk_semayang.jpeg" alt="TK / PAUD">
+            </div>
+            <div class="gallery-info">
+                <h3>TK / PAUD</h3>
+                <p>Bibit harapan mulai tumbuh di sini</p>
+            </div>
+        </div>
+
+        <!-- 5. SD Sekolah Dasar -->
+        <div class="gallery-card">
+            <div class="gallery-img">
+                <img src="sd_semayang.jpeg" alt="SD Sekolah Dasar">
+            </div>
+            <div class="gallery-info">
+                <h3>SD Sekolah Dasar</h3>
+                <p>Pintu gerbang masa depan desa</p>
+            </div>
+        </div>
+
+        <!-- 6. Masjid Desa -->
+        <div class="gallery-card">
+            <div class="gallery-img">
+                <img src="masjid.jpeg" alt="Masjid Desa">
+            </div>
+            <div class="gallery-info">
+                <h3>Masjid Desa</h3>
+                <p>Menara iman menenangkan jiwa</p>
+            </div>
+        </div>
+
+        <!-- 7. Kantor Desa -->
+        <div class="gallery-card">
+            <div class="gallery-img">
+                <img src="kantor_desa.jpeg" alt="Kantor Desa">
+            </div>
+            <div class="gallery-info">
+                <h3>Kantor Desa</h3>
+                <p>Pusat pelayanan dan kebersamaan</p>
+            </div>
+        </div>
+
+        <!-- 8. Jalan Desa -->
+        <div class="gallery-card">
+            <div class="gallery-img">
+                <img src="jalan.jpeg" alt="Jalan Desa">
+            </div>
+            <div class="gallery-info">
+                <h3>Jalan Desa</h3>
+                <p>Ketenangan yang merasuk ke hati</p>
+            </div>
+        </div>
+        
+        </div>
+
+    </div>
+</div>
+<div id="galeri-foto"></div>
+<footer>
+    🌿 Desa Sepadu — Dusun Semayang, Kec. Semparuk, Kab. Sambas<br>
+    <small>©️ 2026 · Alam yang hidup, masyarakat yang bersinar</small>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
